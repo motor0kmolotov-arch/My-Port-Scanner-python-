@@ -1,6 +1,6 @@
 import socket
 
-def Scan():
+def Scan(IP, PORTS):
     for port in PORTS:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = sock.connect_ex((IP, port))
@@ -8,7 +8,7 @@ def Scan():
             print(f"Port {port} is open")
         sock.close()
 
-def Edit():
+def Edit(IP, PORTS):
     editchoice = input(":")
     if editchoice.lower() == "ip":
         IP = input("Enter new IP address: ")
@@ -18,6 +18,7 @@ def Edit():
             PORTS.append(int(input("Enter new port to add: ")))
         elif portschoice.lower() == "remove":
             port_to_remove = int(input("Enter port to remove: "))
+            print(f"Current Ports: {PORTS}")
             if port_to_remove in PORTS:
                 PORTS.remove(port_to_remove)
             else:
@@ -37,9 +38,9 @@ IP = "127.0.0.1"
 while True:
     choice = input("->")
     if choice.lower() == "scan" or choice.lower() == "run":
-        Scan()
+        Scan(IP, PORTS)
     elif choice.lower() == "edit":
-        Edit()
+        Edit(IP, PORTS)
     elif choice.lower() == "help":
         print("Available commands:")
         print("scan/run - Scan the specified ports")
