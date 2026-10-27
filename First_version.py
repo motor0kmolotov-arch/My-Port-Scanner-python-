@@ -27,9 +27,11 @@ def Edit(IP, PORTS):
         print(f"Current IP: {IP}")
         print(f"Current Ports: {PORTS}")
     elif editchoice.lower() == "quit":
-        return    
+        return IP,PORTS
     else:
-        print("Invalid edit option.")            
+        print("Invalid edit option.")     
+
+    return IP,PORTS       
 
 PORTS = [21,22,80,443,8080,42000]
 IP = "127.0.0.1"
@@ -40,7 +42,7 @@ while True:
     if choice.lower() == "scan" or choice.lower() == "run":
         Scan(IP, PORTS)
     elif choice.lower() == "edit":
-        Edit(IP, PORTS)
+        IP,PORTS = Edit(IP, PORTS)
     elif choice.lower() == "help":
         print("Available commands:")
         print("scan/run - Scan the specified ports")
