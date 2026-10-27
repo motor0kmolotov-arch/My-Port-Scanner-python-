@@ -5,3 +5,5 @@ however
 - How TCP sockets work (connect_ex to check if a port is open)
 - Using threads to scan multiple ports faster
 - Handling timeouts so the scan doesn't hang
+
+PLEASE DO NOT USE IT AGAINST A REAL WEB SITE ONLY YOUR TEST MACHINE OR IF YOU HAVE A PERMISSION FROM THE OWNER
